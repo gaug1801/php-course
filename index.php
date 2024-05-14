@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form action="index.php" method="post">
-    <label>radius: </label>
-    <input type="text" name="radius">
-    <input type="submit" value="calculate">
-  </form><br>
-</body>
-</html>
+<?php 
+  $hours = 50;
+  $rate = 15;
+  $weekly_pay = null;
+  if ($hours <= 0) {
+    $weekly_pay = 0;
+  }
+  elseif ($hours <= 40) {
+    $weekly_pay = $hours * $rate;
+  }
+  else {
+    $weekly_pay = ($rate * 40) + (($hours - 40) * $rate * 1.5);
+  }
 
-<?php
-  $radius = $_POST["radius"];
-  $circumference = null;
-  $volume = null;
+  echo"You made \${$weekly_pay} this week.";
 
-  $circumference = 2 * pi() * $radius;
-  $circumference = round($circumference, 2); //the second parameter determines how many decimal points to display
+  // $adult = true;
 
-  $area = pi() * pow($radius, 2);
-  $area = round($area, 2);
+  // if ($adult) {
+  //   echo"You may enter this site.";
+  // }
+  // else {
+  //   echo"You must be an adult to enter.";
+  // }
 
-  $volume = (4 / 3) * pi() * pow($radius, 3);
-  $volume = round($volume, 2);
+  // $age = 21;
 
-  echo"Circumference = {$circumference}cm<br>";
-  echo"Area = {$area}cm^2<br>";
-  echo"Volume = {$volume}cm^3<br>";
+  // if($age >= 100) {
+  //   echo"You are too old to enter this site.";
+  // }
+  // elseif ($age >= 18) {
+  //   echo"You may enter this site.";
+  // }
+  // elseif ($age < 0) {
+  //   echo"that is not a valid age.";
+  // }
+  // else {
+  //   echo"You must be 18+ to enter.";
+  // }
 
 ?>
