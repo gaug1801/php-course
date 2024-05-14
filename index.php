@@ -6,24 +6,36 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="index.php" method="get">
-    <label>quantity: </label><br>
-    <input type="text" name="quantity"><br>
+  <form action="index.php" method="post">
+    <label>x: </label>
+    <input type="text" name="x">
+    <label>y: </label>
+    <input type="text" name="y">
+    <label>z: </label>
+    <input type="text" name="z">
     <input type="submit" value="total">
-
-
   </form>
 </body>
 </html>
 
+
 <?php
-// USING $_GET allows the user to edit the value in the url.
-  $item = "pizza";
-  $price = 5.99;
-  $quantity = $_GET["quantity"];
+  $x = $_POST["x"];
+  $y = $_POST["y"];
+  $z = $_POST["z"];
+  $total = null;
 
-  $total = $quantity * $price;
+  // $total = abs($x);
+  // $total = round($x);
+  // $total = floor($x);
+  // $total = ceil($x);
+  // $total = sqrt($x);
+  // $total = pow($x, $y);
+  // $total = max($x, $y, $z);
+  // $total = min($x, $y, $z);
+  // $total = pi();
+  // $total = rand(); // no parameter will choose a rand a little over  2 billion
+  $total = rand(1, 100); // a number from 1 to 100
+  echo $total;
 
-  echo"You have ordered {$quantity} x {$item}/s <br>";
-  echo"Your total is: \${$total}";
 ?>
