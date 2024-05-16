@@ -6,38 +6,54 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- if we use post, we get a key/value pair from the checkbox. -->
   <form action="index.php" method="post">
-    <!-- By giving all three radios the same name attribute we can select only one at a time. -->
-    <input type="radio" name="credit_card" value="Visa"> Visa <br>
-    <input type="radio" name="credit_card" value="Mastercard"> Mastercard <br>
-    <input type="radio" name="credit_card" value="American Express"> American Express <br>
-    <input type="submit" name="confirm" value="Confirm">
+    <input type="checkbox" name="foods[]" value="Pizza">Pizza<br>
+    <input type="checkbox" name="foods[]" value="Hamburger">Hamburger<br>
+    <input type="checkbox" name="foods[]" value="Hotdog">Hotdog<br>
+    <input type="checkbox" name="foods[]" value="Taco">Taco<br>
+    <input type="submit" name="submit">
   </form>
 </body>
 </html>
-
 <?php
-
-  if (isset($_POST["confirm"])) { // checks that confirm has been clicked
-
-    $credit_card = null;
-
-    if (isset($_POST["credit_card"])) { // checks if credit card has been selected
-      $credit_card = $_POST["credit_card"];
-    }
-    switch($credit_card) {
-      case "Visa":
-        echo "You selected Visa.";
-        break;
-      case "Mastercard":
-        echo "You selected Mastercard.";
-        break;
-      case "American Express":
-        echo "You selected American Express.";
-        break;
-      default:
-        echo "Please make a selection.";
-        break;
+  
+  if (isset($_POST["submit"])) {
+    $foods = $_POST["foods"];
+    
+    foreach($foods as $food) {
+      echo $food . "<br>";
     }
   }
+  
+  // This is the long way to do it, but it works. the other approach is
+  // to put all the checkboxes into an array by giving them all the same name,
+  // like we did with the radio buttons. 
+  // if (isset($_POST["submit"])) {
+    
+  //   if (isset($_POST["pizza"])) {
+  //     echo "You like pizza.<br>";
+  //   }
+  //   if (isset($_POST["hamburger"])) {
+  //     echo "You like hamburgers.<br>";
+  //   }
+  //   if (isset($_POST["hotdog"])) {
+  //     echo "You like hotdogs.<br>";
+  //   }
+  //   if (isset($_POST["taco"])) {
+  //     echo "You like tacos.<br>";
+  //   }
+  //   if (empty($_POST["pizza"])) {
+  //     echo "You don't like pizza.<br>";
+  //   }
+  //   if (empty($_POST["hamburger"])) {
+  //     echo "You don't like hamburgers.<br>";
+  //   }
+  //   if (empty($_POST["hotdog"])) {
+  //     echo "You don't like hotdogs.<br>";
+  //   }
+  //   if (empty($_POST["taco"])) {
+  //     echo "You don't like tacos.<br>";
+  //   }
+  // }
 ?>
