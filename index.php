@@ -1,59 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- if we use post, we get a key/value pair from the checkbox. -->
-  <form action="index.php" method="post">
-    <input type="checkbox" name="foods[]" value="Pizza">Pizza<br>
-    <input type="checkbox" name="foods[]" value="Hamburger">Hamburger<br>
-    <input type="checkbox" name="foods[]" value="Hotdog">Hotdog<br>
-    <input type="checkbox" name="foods[]" value="Taco">Taco<br>
-    <input type="submit" name="submit">
-  </form>
-</body>
-</html>
 <?php
-  
-  if (isset($_POST["submit"])) {
-    $foods = $_POST["foods"];
-    
-    foreach($foods as $food) {
-      echo $food . "<br>";
-    }
+  //you can list a datatype to make sure an unwanted type doesn't go through. an error will be thrown
+  function hypotenuse( float $a, float $b) {
+    $c = sqrt(($a ** 2) + ($b ** 2));
+    return $c;
   }
-  
-  // This is the long way to do it, but it works. the other approach is
-  // to put all the checkboxes into an array by giving them all the same name,
-  // like we did with the radio buttons. 
-  // if (isset($_POST["submit"])) {
-    
-  //   if (isset($_POST["pizza"])) {
-  //     echo "You like pizza.<br>";
-  //   }
-  //   if (isset($_POST["hamburger"])) {
-  //     echo "You like hamburgers.<br>";
-  //   }
-  //   if (isset($_POST["hotdog"])) {
-  //     echo "You like hotdogs.<br>";
-  //   }
-  //   if (isset($_POST["taco"])) {
-  //     echo "You like tacos.<br>";
-  //   }
-  //   if (empty($_POST["pizza"])) {
-  //     echo "You don't like pizza.<br>";
-  //   }
-  //   if (empty($_POST["hamburger"])) {
-  //     echo "You don't like hamburgers.<br>";
-  //   }
-  //   if (empty($_POST["hotdog"])) {
-  //     echo "You don't like hotdogs.<br>";
-  //   }
-  //   if (empty($_POST["taco"])) {
-  //     echo "You don't like tacos.<br>";
-  //   }
+
+  echo hypotenuse(4, 5);
+
+  // function is_even($number) {
+  //   return $number % 2;
   // }
+
+  // echo is_even(10);
+
+
+  // function happy_birthday($first_name, $age) {
+  //   echo "Happy Birthday dear {$first_name}!<br>";
+  //   echo "Happy Birthday to you!<br>";
+  //   echo "Happy Birthday dear {$first_name}!<br>";
+  //   echo "You are {$age} years old!<br><br>";
+
+  // }
+
+  // happy_birthday("Spongebob", 30);
+  // happy_birthday("Patrick", 35);
+  // happy_birthday("Squidward", 45);
 ?>
