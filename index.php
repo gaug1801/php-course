@@ -7,22 +7,25 @@
 </head>
 <body>
   <form action="index.php" method="post">
-    <label>Enter a number to count to</label>
-    <input type="text" name="counter">
-    <input type="submit" value="start">
+    <input type="submit" name="stop" value="stop">
   </form>
+  
 </body>
 </html>
 
 <?php 
 
-  $counter = $_POST["counter"];
+$seconds = 0;
+$running = true;
 
-  for ($i = $counter; $i > 0; $i--) {
-    echo $i . "<br>";
+while ($running) { //this runs forever without a break.
+  if (isset($_POST["stop"])) {
+    $running = false;
   }
-
-  // for ($i = 1; $i <= $counter; $i++) {
-  //   echo $i . "<br>";
-  // }
+  else {
+    //wait one second
+    $seconds++;
+    echo $seconds .  "<br>";
+  }
+}
 ?>
