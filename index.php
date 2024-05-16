@@ -1,41 +1,41 @@
 <?php 
-  $hours = 50;
-  $rate = 15;
-  $weekly_pay = null;
-  if ($hours <= 0) {
-    $weekly_pay = 0;
-  }
-  elseif ($hours <= 40) {
-    $weekly_pay = $hours * $rate;
+  $child = false;
+  $senior = true;
+  $ticket = null;
+
+  if ($child || $senior) {
+    $ticket = 10;
   }
   else {
-    $weekly_pay = ($rate * 40) + (($hours - 40) * $rate * 1.5);
+    $ticket = 15;
   }
 
-  echo"You made \${$weekly_pay} this week.";
+  echo "The ticket price is \${$ticket}";
 
-  // $adult = true;
-
-  // if ($adult) {
-  //   echo"You may enter this site.";
+  // $age = 12;
+  // $citizen = true;
+  // if (!($age >= 18) || (!$citizen)) {
+  //   echo"You cannot vote.";
   // }
   // else {
-  //   echo"You must be an adult to enter.";
+  //   echo"You can vote.";
   // }
 
-  // $age = 21;
+  // $temp = 15;
+  // $cloud = true;
 
-  // if($age >= 100) {
-  //   echo"You are too old to enter this site.";
-  // }
-  // elseif ($age >= 18) {
-  //   echo"You may enter this site.";
-  // }
-  // elseif ($age < 0) {
-  //   echo"that is not a valid age.";
+  // if($temp < 0 || $temp > 30) {
+  //   echo"The weather is bad.<br>";
   // }
   // else {
-  //   echo"You must be 18+ to enter.";
+  //   echo"The weather is good.<br>";
+  // }
+
+  // if (!$cloudy) {
+  //   echo"It's sunny.";
+  // }
+  // else {
+  //   echo"It's cloudy.";
   // }
 
 ?>
