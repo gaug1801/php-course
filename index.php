@@ -1,28 +1,21 @@
 <?php
-  //you can list a datatype to make sure an unwanted type doesn't go through. an error will be thrown
-  function hypotenuse( float $a, float $b) {
-    $c = sqrt(($a ** 2) + ($b ** 2));
-    return $c;
-  }
+  $username = array("Gabriel", "Eduardo", "Quevedo");
+  $phone = "612-388-2401";
+  // $username = strtolower($usename); //all to lowercase
+  // $username = strtoupper($usename); // all to uppercase
+  // $username = trim($username); // get rid of white space
+  // $username = str_pad($username, 20, "0"); // 2nd arg sets the string array size, 3rd arg is the value you want to pad with.
+  // $username = str_replace("-", "", $phone); //1st arg is what we're replacing, 2nd is what we will replace with, 3rd is the variable
+  // $username = strrev();
+  // $username = str_shuffle($username);
+  // $equals = strcmp($username, "Gabriel Augustin"); //returns 0 if they are the same. 
+  // $count = strlen($username);
+  // $index = strpos($phone, "-");
+  // $firstname = substr($username, 0, 7);
+  // $lastname = substr($username, 8);
+  // $fullname = explode(" ", $username);   foreach ($fullname as $name) { echo $name . "<br>" }
+  // $username = implode("-", $username); //the value to be imploded must be an array
+  
 
-  echo hypotenuse(4, 5);
-
-  // function is_even($number) {
-  //   return $number % 2;
-  // }
-
-  // echo is_even(10);
-
-
-  // function happy_birthday($first_name, $age) {
-  //   echo "Happy Birthday dear {$first_name}!<br>";
-  //   echo "Happy Birthday to you!<br>";
-  //   echo "Happy Birthday dear {$first_name}!<br>";
-  //   echo "You are {$age} years old!<br><br>";
-
-  // }
-
-  // happy_birthday("Spongebob", 30);
-  // happy_birthday("Patrick", 35);
-  // happy_birthday("Squidward", 45);
+  echo $username;
 ?>
