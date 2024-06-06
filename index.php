@@ -1,12 +1,3 @@
-<?php 
-  // session = Super Global Variable used to store info on an user
-  //           to be used across multiple pages.
-  //           A user is assigned a session-id
-  //           ex: login credentials
-
-  session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,31 +6,32 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="index.php" method="post">
-      username:<br>
-      <input type="text" name="username"><br>
-      password:<br>
-      <input type="password" name="password"><br>
-      <input type="submit" name="login" value="login">
+  <!--$_SERVER["PHP_SELF"] directs the form to itself. Useful in case of filename changes.  -->
+  <!-- htmlspecialchars() protects from cross-site scripts. -->
+  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    username:<br>
+    <input type="text" name="username">
+    <input type="submit">
   </form>
-  
 </body>
 </html>
-
 <?php 
-  if(isset($_POST["login"])) {
-    
-    if(!empty($_POST["username"]) && 
-    !empty($_POST["password"])) {
-      $_SESSION["username"] = $_POST["username"];
-      $_SESSION["password"] = $_POST["password"];
+  // $_SERVER = SGB that contains headers, paths, and script locations.
+  //            The entries in this array are created by the web server.
+  //            Shows nearly everything you need to know about the current web page environment
 
-      header("Location: home.php");
-      // echo"{$_SESSION["username"]}
-      //     {$_SESSION["password"]}";    
-    }
-    else {
-      echo"Missing username/password";
-    }
-  } 
+  // PHP_SELF = the location of this webpage
+  // REQUEST METHOD = either GET or POST. The default is get. If we have an html form that has the method post, the request method will be POST.
+
+  foreach($_SERVER as $key => $value) {
+    echo"{$key} = {$value} <br>";
+  }
+
+  //This is the better way to make sure the user has submitted an input.
+  // In older systems, it is easy to get around pressing the designated button
+  // to submit. This is more robust.
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo"Hello";
+  }
+
 ?>
