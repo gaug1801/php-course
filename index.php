@@ -1,21 +1,58 @@
-<?php
-  $username = array("Gabriel", "Eduardo", "Quevedo");
-  $phone = "612-388-2401";
-  // $username = strtolower($usename); //all to lowercase
-  // $username = strtoupper($usename); // all to uppercase
-  // $username = trim($username); // get rid of white space
-  // $username = str_pad($username, 20, "0"); // 2nd arg sets the string array size, 3rd arg is the value you want to pad with.
-  // $username = str_replace("-", "", $phone); //1st arg is what we're replacing, 2nd is what we will replace with, 3rd is the variable
-  // $username = strrev();
-  // $username = str_shuffle($username);
-  // $equals = strcmp($username, "Gabriel Augustin"); //returns 0 if they are the same. 
-  // $count = strlen($username);
-  // $index = strpos($phone, "-");
-  // $firstname = substr($username, 0, 7);
-  // $lastname = substr($username, 8);
-  // $fullname = explode(" ", $username);   foreach ($fullname as $name) { echo $name . "<br>" }
-  // $username = implode("-", $username); //the value to be imploded must be an array
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="index.php" method="post">
+    username: <br>
+    <input type="text" name="username">
+    <br>
+    age: <br>
+    <input type="text" name="age">
+    <br>
+    email:
+    <br> 
+    <input type="text" name="email">
+    <input type="submit" name="submit">
 
-  echo $username;
-?>
+  </form>
+</body>
+</html>
+ <?php 
+    if (isset($_POST["submit"])) {
+      /*    VERIFY AN INPUT - returns an empty string if it doesn't pass the verif. 
+      // $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT); // if the input is NAN return empty.
+
+      // if (empty($age)) {
+      //   echo "that number wasn't valid";
+      // }
+      // else {
+      //   echo "You are {$age} years old.";
+      // }
+
+      // $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+      // if (empty($email)) {
+      //   echo "that email wasn't valid";
+      // }
+      // else {
+      //   echo "Your email is: {$email}";
+      // }
+      */
+      
+      /*    SANITIZE AN INPUT - strip certain chars from the input
+      $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);//$_POST["username"];//Instead of using the $_POST array, use filter_input()
+      //filter_input() parameters: INPUT_POST (or GET), name of the input (username), what you want to filter out.
+      //In this case we are filtering all speical chars from the input, so we use FILTER_SANITIZE_SPECIAL_CHARS.
+
+      $age = filter_input(INPUT_POST, "age", FILTER_SANITIZE_NUMBER_INT);
+
+      $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+      echo "Your email is: {$email}";
+      */
+    }
+
+
+ ?>
