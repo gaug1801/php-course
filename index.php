@@ -1,28 +1,45 @@
 <?php 
+  // session = Super Global Variable used to store info on an user
+  //           to be used across multiple pages.
+  //           A user is assigned a session-id
+  //           ex: login credentials
 
-  // cookie = Info about a user stored in a user's web-browser
-  //          why you receive targeted ads, browsing preferences, and
-  //          other non-sensitive data.
-  //setcookie(name, value, expiration time, path)
-  setcookie("fav_food", "pizza", time() - 0, "/"); //stored as an associative array
-  setcookie("fav_drink", "coffee", time() + (86400 * 3 ), "/");
-  setcookie("fav_dessert", "ice cream", time() + (86400 * 4 ), "/");
+  session_start();
 
-  // to delete a cookie, set the time to time() - 0
-  // setcookie("fav_food", "pizza", time() - 0, "/");
-  // setcookie("fav_drink", "coffee", time() - 0, "/");
-  // setcookie("fav_dessert", "ice cream", time() - 0, "/");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="index.php" method="post">
+      username:<br>
+      <input type="text" name="username"><br>
+      password:<br>
+      <input type="password" name="password"><br>
+      <input type="submit" name="login" value="login">
+  </form>
+  
+</body>
+</html>
 
-  // Print all value key pairs
-  foreach($_COOKIE as $key => $value) {
-    echo"{$key} = {$value} <br>";
-  }
+<?php 
+  if(isset($_POST["login"])) {
+    
+    if(!empty($_POST["username"]) && 
+    !empty($_POST["password"])) {
+      $_SESSION["username"] = $_POST["username"];
+      $_SESSION["password"] = $_POST["password"];
 
-  if (isset($_COOKIE["fav_food"])) {
-    echo"BUY SOME {$_COOKIE["fav_food"]} !!!";
-  }
-  else {
-    echo"I don't know your favorite food.";
-  }
-
+      header("Location: home.php");
+      // echo"{$_SESSION["username"]}
+      //     {$_SESSION["password"]}";    
+    }
+    else {
+      echo"Missing username/password";
+    }
+  } 
 ?>
